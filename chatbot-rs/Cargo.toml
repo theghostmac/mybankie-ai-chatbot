@@ -7,4 +7,5 @@ edition = "2021"
 
 [dependencies]
 miette = "7.2.0"
-reqwest = "0.12.4"
+reqwest = { version = "0.12.4", features = ["json"] }
+serde = { version = "1.0.201", features = ["derive"] }

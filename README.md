@@ -1,6 +1,5 @@
 # mybankie-ai-chatbot
-The financial adviser chatbot for MyBankie (my startup)
-
+The financial adviser chatbot for MyBankie (my startup).
 
 ## Usage
 To use this Makefile effectively:
