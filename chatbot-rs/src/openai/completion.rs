@@ -1,7 +1,6 @@
 use miette::{IntoDiagnostic, Result};
 use serde::{Deserialize, Serialize};
-
-use super::Client;
+use crate::openai::openai_client::Client;
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct Message {
@@ -70,9 +69,9 @@ impl Client {
         let started = std::time::Instant::now();
 
         let prompt = format!(
-            "I will paste a block of markdown. I need you to remove all the formatting, and break each sentence onto its own line
-        Make sure each sentence has a blank line between it. Code blocks should be considered a single sentence.
-
+            "
+             I will paste a block of markdown. I need you to remove all the formatting, and break each sentence onto its own line
+                    Make sure each sentence has a blank line between it. Code blocks should be considered a single sentence.
         {blob}");
         let request = CompletionRequest::gpt_3_5_turbo(&prompt);
         let resp = self.completion(request).await?;

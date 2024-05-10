@@ -1,6 +1,6 @@
 use miette::{IntoDiagnostic, Result};
 use serde::{Deserialize, Serialize};
-use crate::openai_client::Client;
+use crate::openai::openai_client::Client;
 
 const EMBEDDING_DEFAULT_MODEL: &str = "text-embedding-ada-002";
 

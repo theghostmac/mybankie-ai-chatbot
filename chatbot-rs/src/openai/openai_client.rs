@@ -1,14 +1,16 @@
 use miette::{Context, IntoDiagnostic, Result};
 use reqwest::header::{HeaderValue, AUTHORIZATION};
 
-use crate::APP_USER_AGENT;
+pub static APP_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"),);
 
 #[derive(Debug, Clone)]
 pub struct Config {
     api_key: String,
 }
 
-pub struct Client(pub reqwest::Client);
+pub struct Client(
+    pub reqwest::Client
+);
 
 impl Config {
     pub fn from_env() -> Result<Self> {
