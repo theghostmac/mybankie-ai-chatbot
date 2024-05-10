@@ -1,9 +1,3 @@
-pub mod openai;
-
-pub use openai::*;
-
-mod schema;
-
 use std::{
     fs::File,
     io::Write,
@@ -18,10 +12,7 @@ use futures::{stream, StreamExt};
 use itertools::Itertools;
 use miette::{IntoDiagnostic, Result};
 use rusqlite::{params, Connection, OptionalExtension, Row};
-use chatbot_rs::{CONCURRENT_REQUESTS, DB_NAME, EmbeddingConnection, respond_to, setup};
-use openai_client::Client as OpenAiClient;
-use openai_client::Config;
-
+use chatbot_rs::{CONCURRENT_REQUESTS, Config, DB_NAME, EmbeddingConnection, fetch_embedding, respond_to, setup,  openai::openai_client::Client as OpenAiClient};
 
 #[derive(Args, Debug)]
 
