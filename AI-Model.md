@@ -1,5 +1,5 @@
 ### 1. **Data Collection**
-You need to gather data that will be the foundation of your training set. For a financial advice application, this could include:
+Financial data to gather:
 - User financial transactions
 - Monthly income and expenses
 - Debt levels and savings
