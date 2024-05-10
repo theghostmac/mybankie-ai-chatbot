@@ -43,25 +43,21 @@ pub async fn respond_to_with_context(
 
     let prompt = formatdoc!(
         "
-      You are a helpful chatbot Answering questions about Battlesnake.
-      Battlesnake is an online competitve programming game.
-      The goal of a battlesnake developer is to build a snake that can survive
-      on the board the longest.
+        You are a personalized AI financial advisor. Your role is to provide tailored financial advice
+        based on user-specific data and queries. You help users understand their financial situation,
+        make informed decisions, and achieve their financial goals.
 
-      Your job is to answer the users questions about Battlesnake as accurately as possible.
+        Below is some detailed financial information about the user. Use this information to provide
+        specific and actionable financial advice.
+        ----
+        Context:
+        {context}
 
+        --------------------------------------
 
-      Below is some context about the Users qustion. Use it to help you answer the question.
-      After the context will be dashes like this: ----
-      Below the dashes is the users question that you should answer.
-
-      Context:
-      {context}
-
-      --------------------------------------
-
-      {question}
-      "
+        Here is the financial query from the user that you need to address:
+        {question}
+        "
     );
 
     let completion_request = CompletionRequest::gpt_3_5_turbo(&prompt);
